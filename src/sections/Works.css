@@ -1,0 +1,221 @@
+.works-section {
+  background-color: var(--color-bg-primary);
+  position: relative;
+}
+
+.works-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 68px; /* account for navbar */
+}
+
+.works-sticky-container.static-mobile {
+  position: static;
+  height: auto;
+  padding: 100px 0;
+}
+
+.works-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--color-accent-1);
+  transform-origin: 0%;
+  z-index: 10;
+}
+
+.works-header-container {
+  margin-bottom: 40px;
+}
+
+.works-filter-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: none; /* Custom cursor handles this */
+}
+
+.filter-tab:hover {
+  border-color: var(--color-accent-1);
+  color: var(--color-accent-1);
+}
+
+.filter-tab.active {
+  background-color: var(--color-accent-1);
+  border-color: var(--color-accent-1);
+  color: #FFFFFF;
+}
+
+.works-cards-wrapper {
+  width: 100%;
+}
+
+.works-cards-container {
+  display: flex;
+  gap: 24px;
+  padding: 0 24px;
+  /* width is determined by content */
+  align-items: stretch;
+}
+
+.static-mobile .works-cards-container {
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.project-card {
+  flex: 0 0 380px;
+  width: 380px;
+  
+  background-color: var(--color-glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  perspective: 1000px;
+}
+
+.static-mobile .project-card {
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  border-color: var(--color-border);
+}
+
+.project-badge {
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.project-badge.blue {
+  background-color: #EFF6FF;
+  color: var(--color-accent-1);
+}
+
+.project-badge.violet {
+  background-color: #F5F3FF;
+  color: var(--color-accent-2);
+}
+
+.project-badge.slate {
+  background-color: #F1F5F9;
+  color: var(--color-text-secondary);
+}
+
+.project-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.project-tag {
+  background-color: #F8F9FF;
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.project-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-metric {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-accent-3);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-project {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: all 0.2s ease;
+}
+
+.btn-project:hover {
+  background-color: var(--color-accent-1);
+  border-color: var(--color-accent-1);
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .works-header-container {
+    padding: 0 24px;
+  }
+}

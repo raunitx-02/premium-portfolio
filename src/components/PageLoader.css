@@ -1,0 +1,39 @@
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000; /* Highest priority */
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-half {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 50vh;
+  background-color: #000000;
+  will-change: transform;
+}
+
+.loader-half.top {
+  top: 0;
+}
+
+.loader-half.bottom {
+  bottom: 0;
+}
+
+.loader-text {
+  position: relative;
+  z-index: 100001;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+}

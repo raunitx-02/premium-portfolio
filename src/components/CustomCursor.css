@@ -1,0 +1,45 @@
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-accent-1);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 1.5px solid var(--color-accent-1);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor-outline.hover {
+  background-color: rgba(37, 99, 235, 0.2); /* 20% opacity blue */
+  border-color: transparent;
+}
+
+.cursor-text {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Hide custom cursor on mobile */
+@media (max-width: 768px) {
+  .cursor-dot, .cursor-outline {
+    display: none;
+  }
+}
