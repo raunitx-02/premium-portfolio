@@ -36,6 +36,22 @@ const testimonialsData = [
     client: "Hema Mohan",
     role: "Founder, Hema Chitraleela",
     initials: "HM"
+  },
+  {
+    id: 5,
+    color: "blue",
+    quote: "Working with Raunit was an absolute stellar experience. As a fast moving startup, we desperately needed our new e-commerce website to load instantly and convert leads. He not only nailed the exact modern aesthetic we asked for, but his technical structuring was perfect.",
+    client: "Rahul Grover",
+    role: "Founder, Trendsetter Threads",
+    initials: "RG"
+  },
+  {
+    id: 6,
+    color: "orange",
+    quote: "A true professional. Raunit completely overhauled our multi-page corporate site from the ground up. Not only does it look visually beautiful with glassmorphism now, but our organic search rankings improved across the board. I cannot recommend him enough.",
+    client: "Neha Singh",
+    role: "Marketing Head, Nexus Tech",
+    initials: "NS"
   }
 ];
 
