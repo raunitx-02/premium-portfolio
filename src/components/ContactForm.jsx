@@ -1,12 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ContactForm = ({ onClose }) => {
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Frontend only form submission simulation
-    alert("Form submission simulated. Backend not connected.");
-    if (onClose) {
-      onClose();
+    setIsSubmitting(true);
+    
+    // Explicitly using the provided token and fetched chat ID
+    const BOT_TOKEN = "8691480653:AAEkoY1Z1lqwGCqd1a31XI6Am1iQR5zBYDo";
+    const CHAT_ID = "8348945192";
+    
+    const formData = new FormData(e.target);
+    
+    const text = `🚀 *New Portfolio Lead!*
+---------------------------
+👤 *Name:* ${formData.get('firstName')} ${formData.get('lastName')}
+📧 *Email:* ${formData.get('email')}
+📱 *Phone:* ${formData.get('phone') || 'Not provided'}
+💼 *Service:* ${formData.get('service')}
+
+💬 *Message:*
+${formData.get('message')}`;
+
+    try {
+      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: text,
+          parse_mode: 'Markdown'
+        })
+      });
+      
+      setSuccess(true);
+      e.target.reset();
+      
+      setTimeout(() => {
+        setSuccess(false);
+        if (onClose) {
+          onClose();
+        }
+      }, 2500);
+      
+    } catch (err) {
+      alert("Something went wrong with Telegram! Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -15,48 +59,57 @@ const ContactForm = ({ onClose }) => {
       <div className="form-row">
         <div className="form-group half">
           <label>First Name</label>
-          <input type="text" placeholder="John" required />
+          <input type="text" name="firstName" placeholder="John" required disabled={isSubmitting} />
         </div>
         <div className="form-group half">
           <label>Last Name</label>
-          <input type="text" placeholder="Doe" required />
+          <input type="text" name="lastName" placeholder="Doe" required disabled={isSubmitting} />
         </div>
       </div>
       
       <div className="form-group">
         <label>Email Address</label>
-        <input type="email" placeholder="john@example.com" required />
+        <input type="email" name="email" placeholder="john@example.com" required disabled={isSubmitting} />
       </div>
       
       <div className="form-group">
         <label>Phone Number</label>
-        <input type="tel" placeholder="+91 99999 99999" />
+        <input type="tel" name="phone" placeholder="+91 99999 99999" disabled={isSubmitting} />
       </div>
       
       <div className="form-group">
         <label>Service Needed</label>
-        <select required defaultValue="">
+        <select name="service" required defaultValue="" disabled={isSubmitting}>
           <option value="" disabled>Select a service...</option>
-          <option value="wordpress">WordPress Development</option>
-          <option value="ecommerce">E-Commerce Development</option>
-          <option value="mobile">Mobile App Development</option>
-          <option value="seo">SEO Optimization</option>
-          <option value="design">Web Design & UI/UX</option>
-          <option value="social">Social Media Marketing</option>
-          <option value="other">Other</option>
+          <option value="WordPress Development">WordPress Development</option>
+          <option value="E-Commerce Development">E-Commerce Development</option>
+          <option value="Mobile App Development">Mobile App Development</option>
+          <option value="SEO Optimization">SEO Optimization</option>
+          <option value="Web Design & UI/UX">Web Design & UI/UX</option>
+          <option value="Social Media Marketing">Social Media Marketing</option>
+          <option value="Other">Other</option>
         </select>
       </div>
       
       <div className="form-group">
         <label>Message</label>
-        <textarea placeholder="Tell me about your project..." required></textarea>
+        <textarea name="message" placeholder="Tell me about your project..." required disabled={isSubmitting}></textarea>
       </div>
       
-      <button type="submit" className="btn-submit hover-target">
-        Send Message →
+      <button 
+        type="submit" 
+        className="btn-submit hover-target" 
+        disabled={isSubmitting}
+        style={{ 
+          backgroundColor: success ? 'var(--color-success)' : 'var(--color-accent-1)',
+          pointerEvents: isSubmitting || success ? 'none' : 'auto',
+          opacity: isSubmitting ? 0.7 : 1
+        }}
+      >
+        {isSubmitting ? 'Sending to Telegram...' : success ? 'Message Sent! ✓' : 'Send Message →'}
       </button>
       <div className="form-footer-info">
-        Usually responds within 24 hours ⚡
+        Expected response time: Usually within an hour ⚡
       </div>
     </form>
   );
