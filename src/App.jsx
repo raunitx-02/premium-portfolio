@@ -7,10 +7,13 @@ import Navbar from './sections/Navbar';
 import Footer from './sections/Footer';
 import Home from './pages/Home';
 import ServiceDetail from './pages/ServiceDetail';
+import { ModalProvider } from './context/ModalContext';
+import ContactModal from './components/ContactModal';
 
 function App() {
   return (
-    <BrowserRouter>
+    <ModalProvider>
+      <BrowserRouter>
       <SmoothScroller>
         <div className="grain-overlay"></div>
         <CustomCursor />
@@ -18,6 +21,7 @@ function App() {
         
         <main className="app-main">
           <Navbar />
+          <ContactModal />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/service/:slug" element={<ServiceDetail />} />
@@ -26,6 +30,7 @@ function App() {
         </main>
       </SmoothScroller>
     </BrowserRouter>
+    </ModalProvider>
   );
 }
 

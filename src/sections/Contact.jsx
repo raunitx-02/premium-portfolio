@@ -3,14 +3,10 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, DollarSign } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import AnimatedSectionHeading from '../components/AnimatedSectionHeading';
+import ContactForm from '../components/ContactForm';
 import './Contact.css';
 
 const Contact = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Frontend only form submission simulation
-    alert("Form submission simulated. Backend not connected.");
-  };
 
   return (
     <section id="contact" className="contact-section">
@@ -31,54 +27,7 @@ const Contact = () => {
           >
             <div className="contact-form-card">
               <h3 className="form-title">Send Me a Message</h3>
-              <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-row">
-                  <div className="form-group half">
-                    <label>First Name</label>
-                    <input type="text" placeholder="John" required />
-                  </div>
-                  <div className="form-group half">
-                    <label>Last Name</label>
-                    <input type="text" placeholder="Doe" required />
-                  </div>
-                </div>
-                
-                <div className="form-group">
-                  <label>Email Address</label>
-                  <input type="email" placeholder="john@example.com" required />
-                </div>
-                
-                <div className="form-group">
-                  <label>Phone Number</label>
-                  <input type="tel" placeholder="+91 99999 99999" />
-                </div>
-                
-                <div className="form-group">
-                  <label>Service Needed</label>
-                  <select required defaultValue="">
-                    <option value="" disabled>Select a service...</option>
-                    <option value="wordpress">WordPress Development</option>
-                    <option value="ecommerce">E-Commerce Development</option>
-                    <option value="mobile">Mobile App Development</option>
-                    <option value="seo">SEO Optimization</option>
-                    <option value="design">Web Design & UI/UX</option>
-                    <option value="social">Social Media Marketing</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                
-                <div className="form-group">
-                  <label>Message</label>
-                  <textarea placeholder="Tell me about your project..." required></textarea>
-                </div>
-                
-                <button type="submit" className="btn-submit hover-target">
-                  Send Message →
-                </button>
-                <div className="form-footer-info">
-                  Usually responds within 24 hours ⚡
-                </div>
-              </form>
+              <ContactForm />
             </div>
           </motion.div>
           

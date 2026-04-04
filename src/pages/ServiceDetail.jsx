@@ -3,12 +3,14 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronLeft } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
+import { useModal } from '../context/ModalContext';
 import AnimatedSectionHeading from '../components/AnimatedSectionHeading';
 import './ServiceDetail.css';
 
 const ServiceDetail = () => {
   const { slug } = useParams();
   const service = servicesData.find(s => s.slug === slug);
+  const { openModal } = useModal();
 
   useEffect(() => {
     window.scrollTo(0, 0); // scroll to top when mounting detail page
@@ -88,7 +90,7 @@ const ServiceDetail = () => {
             <div className="glass-panel sidebar-box mt-8 cta-box">
               <h3>Ready to start?</h3>
               <p>Let's build something amazing together.</p>
-              <Link to="/#contact" className="btn-primary full-width hover-target">Start a Project</Link>
+              <button onClick={openModal} className="btn-primary full-width hover-target" style={{border: 'none', cursor: 'pointer', fontFamily: 'var(--font-display)', fontSize: '15px'}}>Start a Project</button>
             </div>
           </div>
         </div>

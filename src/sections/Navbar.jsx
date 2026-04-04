@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HashLink } from 'react-router-hash-link';
+import { useModal } from '../context/ModalContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
@@ -17,6 +18,7 @@ const navLinks = [
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const { openModal } = useModal();
 
   // Handle active section logic
   useEffect(() => {
@@ -88,9 +90,9 @@ const Navbar = () => {
           </div>
 
           {/* Hire Me Button Desktop */}
-          <HashLink smooth to="/#contact" className="btn-hire-me hover-target">
+          <button onClick={openModal} className="btn-hire-me hover-target">
             Hire Me 🚀
-          </HashLink>
+          </button>
 
           {/* Mobile Hamburger */}
           <button 
