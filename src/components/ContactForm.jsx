@@ -106,7 +106,7 @@ ${formData.get('message')}`;
           opacity: isSubmitting ? 0.7 : 1
         }}
       >
-        {isSubmitting ? 'Sending to Telegram...' : success ? 'Message Sent! ✓' : 'Send Message →'}
+        {isSubmitting ? 'Sending Message...' : success ? 'Message Sent! ✓' : 'Send Message →'}
       </button>
       <div className="form-footer-info">
         Expected response time: Usually within an hour ⚡
