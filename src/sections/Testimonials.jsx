@@ -67,7 +67,8 @@ const Testimonials = () => {
   }, []);
 
   const cardsToShow = windowWidth > 992 ? 2 : 1;
-  const maxIndex = Math.max(0, testimonialsData.length - cardsToShow);
+  const totalPages = Math.ceil(testimonialsData.length / cardsToShow);
+  const maxIndex = totalPages - 1;
 
   const nextSlide = useCallback(() => {
     setCurrentIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
@@ -99,9 +100,9 @@ const Testimonials = () => {
           <div className="carousel-track-wrapper">
             <motion.div 
               className="carousel-track"
-              animate={{ x: `calc(-${currentIndex * (100 / cardsToShow)}%)` }}
+              animate={{ x: `${-currentIndex * (100 / totalPages)}%` }}
               transition={{ ease: "easeInOut", duration: 0.5 }}
-              style={{ width: `${(testimonialsData.length / cardsToShow) * 100}%` }}
+              style={{ width: `${totalPages * 100}%` }}
             >
               {testimonialsData.map((testimonial) => (
                 <div 
@@ -134,7 +135,7 @@ const Testimonials = () => {
               <ChevronLeft size={24} />
             </button>
             <div className="carousel-dots">
-              {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              {Array.from({ length: totalPages }).map((_, i) => (
                 <button 
                   key={i}
                   className={`carousel-dot hover-target ${i === currentIndex ? 'active' : ''}`}
