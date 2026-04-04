@@ -4,46 +4,10 @@ import { Layout, ShoppingCart, Smartphone, LineChart, PenTool, Share2 } from 'lu
 import AnimatedSectionHeading from '../components/AnimatedSectionHeading';
 import './Services.css';
 
-const servicesData = [
-  {
-    id: "01",
-    title: "WordPress Development",
-    icon: <Layout size={28} color="#2563EB" />,
-    description: "Custom theme & plugin development for blogs, portfolios, and complex multi-page company sites. All builds are fast, secure, SEO-optimized, WooCommerce-ready, and easy for your team to manage. Process: Consultation → Wireframe → Development → Content Integration → Testing → Launch → Ongoing Support. 25+ WordPress projects delivered across India."
-  },
-  {
-    id: "02",
-    title: "E-Commerce Development",
-    icon: <ShoppingCart size={28} color="#2563EB" />,
-    description: "High-converting Shopify, WooCommerce & Magento stores built for real sales from day one. Full setup: payment gateways (Razorpay, Stripe, PayPal), inventory management, shipping, coupons, analytics dashboards, customer reviews, and fully mobile-optimized checkout. Helped multiple brands launch and scale their online revenue significantly."
-  },
-  {
-    id: "03",
-    title: "Mobile App Development",
-    icon: <Smartphone size={28} color="#2563EB" />,
-    description: "Cross-platform Android & iOS apps built with Flutter (Dart). Single codebase, blazing fast UI, secure Firebase authentication, REST API integration, push notifications, in-app purchases, and full Google Play Store & Apple App Store submission support with documentation."
-  },
-  {
-    id: "04",
-    title: "SEO Optimization",
-    icon: <LineChart size={28} color="#2563EB" />,
-    description: "Data-driven SEO for sustainable, long-term organic growth. Comprehensive technical audits, competitive keyword research, on-page & off-page optimization, content strategy, local SEO for Google Maps, schema markup, XML sitemaps, and transparent monthly reporting with real metrics. Proven: 500K+ monthly organic visitors delivered."
-  },
-  {
-    id: "05",
-    title: "Web Design & UI/UX",
-    icon: <PenTool size={28} color="#2563EB" />,
-    description: "Human-centric, conversion-optimized design from discovery to delivery. Process: Discovery Session → Wireframing → Full Visual Design → Style Guide → Interactive Prototyping → Dev Handoff → Post-Launch Review. Responsive across all devices, WCAG accessible, and uniquely branded for every client."
-  },
-  {
-    id: "06",
-    title: "Social Media Marketing",
-    icon: <Share2 size={28} color="#2563EB" />,
-    description: "Full-service social media management across Facebook, Instagram, LinkedIn, and Twitter. Content strategy, branded graphics, short-form video creation, paid ad campaigns, community management, influencer outreach, and monthly analytics reporting with transparent ROI. Turns followers into real customers."
-  }
-];
+import { Link } from 'react-router-dom';
+import { servicesData } from '../data/servicesData';
 
-const ServiceCard = ({ id, title, icon, description, index }) => {
+const ServiceCard = ({ id, title, icon, shortDescription, slug, index }) => {
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -93,10 +57,10 @@ const ServiceCard = ({ id, title, icon, description, index }) => {
         </div>
         <div className="service-id">{id}</div>
         <h3 className="service-title">{title}</h3>
-        <p className="service-desc">{description}</p>
-        <div className="service-explore">
+        <p className="service-desc">{shortDescription}</p>
+        <Link to={`/service/${slug}`} className="service-explore" style={{display: 'block', textDecoration: 'none'}}>
           Explore →
-        </div>
+        </Link>
       </div>
     </motion.div>
   );

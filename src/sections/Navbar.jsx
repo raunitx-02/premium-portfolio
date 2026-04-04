@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { HashLink } from 'react-router-hash-link';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
@@ -48,18 +49,18 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="nav-container">
           {/* Logo */}
-          <a href="#" className="nav-logo hover-target">
+          <HashLink smooth to="/#" className="nav-logo hover-target">
             Raunit<span className="dot">.</span>
-          </a>
+          </HashLink>
 
           {/* Desktop Links */}
           <div className="nav-links-desktop">
             {navLinks.map((link, i) => {
               const isActive = activeSection === link.href;
               return (
-                <a 
+                <HashLink 
                   key={link.name} 
-                  href={link.href} 
+                  smooth to={`/${link.href}`} 
                   className={`nav-link hover-target ${isActive ? 'active' : ''}`}
                 >
                   <motion.span
@@ -81,15 +82,15 @@ const Navbar = () => {
                     ))}
                   </motion.span>
                   <span className="nav-link-underline" />
-                </a>
+                </HashLink>
               );
             })}
           </div>
 
           {/* Hire Me Button Desktop */}
-          <a href="#contact" className="btn-hire-me hover-target">
+          <HashLink smooth to="/#contact" className="btn-hire-me hover-target">
             Hire Me 🚀
-          </a>
+          </HashLink>
 
           {/* Mobile Hamburger */}
           <button 
@@ -115,17 +116,20 @@ const Navbar = () => {
           >
             <div className="mobile-menu-content">
               {navLinks.map((link, i) => (
-                <motion.a
+                <motion.div
                   key={link.name}
-                  href={link.href}
-                  className="mobile-nav-link"
-                  onClick={() => setIsMobileMenuOpen(false)}
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2 + (i * 0.05), duration: 0.4 }}
                 >
-                  {link.name}
-                </motion.a>
+                  <HashLink
+                    smooth to={`/${link.href}`}
+                    className="mobile-nav-link"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </HashLink>
+                </motion.div>
               ))}
             </div>
           </motion.div>
