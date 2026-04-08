@@ -7,6 +7,7 @@ import Navbar from './sections/Navbar';
 import Footer from './sections/Footer';
 import Home from './pages/Home';
 import ServiceDetail from './pages/ServiceDetail';
+import BlogDetail from './pages/BlogDetail';
 import { ModalProvider } from './context/ModalContext';
 import ContactModal from './components/ContactModal';
 
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/service/:slug" element={<ServiceDetail />} />
+            <Route path="/blog/:slug" element={<BlogDetail />} />
           </Routes>
           <Footer />
         </main>
