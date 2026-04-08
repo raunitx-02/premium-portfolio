@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   SiReact, SiFirebase, SiTailwindcss, SiPython, SiFastapi, 
   SiDocker, SiGithubactions, SiVercel, SiFlutter, 
@@ -86,6 +86,61 @@ const techStackItems = [
   { name: "Linux", icon: <SiLinux size={26} color="#FCC624" /> },
 ];
 
+const TechBadge = ({ tech, index }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <motion.div 
+      className="tech-badge-wrapper"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      style={{ position: 'relative' }}
+    >
+      <motion.div 
+        className="tech-badge"
+        whileHover={{ scale: 1.15, y: -16 }}
+        animate={{ y: [0, -12, 0] }}
+        transition={{ 
+          y: {
+            duration: 3 + (index % 5) * 0.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: (index % 5) * 0.3
+          },
+          scale: { type: "spring", stiffness: 400, damping: 10 }
+        }}
+      >
+        {tech.icon}
+      </motion.div>
+
+      <AnimatePresence>
+        {isHovered && (
+          <motion.div 
+            className="liquid-tooltip"
+            initial={{ opacity: 0, scale: 0.5, y: 10, x: '-50%' }}
+            animate={{ opacity: 1, scale: 1, y: -10, x: '-50%' }}
+            exit={{ opacity: 0, scale: 0.8, y: 5, x: '-50%' }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 400, 
+              damping: 25,
+              mass: 0.8
+            }}
+          >
+            <div className="tooltip-content">
+              {tech.name}
+              <div className="tooltip-arrow" />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 const SkillBar = ({ name, percent, delay }) => {
   return (
     <div className="skill-bar-container">
@@ -155,26 +210,7 @@ const Skills = () => {
             
             <div className="tech-badge-grid">
               {techStackItems.map((tech, index) => (
-                <motion.div 
-                  key={tech.name} 
-                  className="tech-badge hover-target"
-                  title={tech.name}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  animate={{ y: [0, -12, 0] }}
-                  transition={{ 
-                    opacity: { duration: 0.6, delay: index * 0.05 },
-                    y: {
-                      duration: 3 + (index % 5) * 0.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: (index % 5) * 0.3
-                    }
-                  }}
-                >
-                  {tech.icon}
-                </motion.div>
+                <TechBadge key={tech.name} tech={tech} index={index} />
               ))}
             </div>
           </div>
