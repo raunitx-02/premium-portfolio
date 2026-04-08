@@ -79,19 +79,19 @@
 }
 
 .tech-badge {
-  background-color: var(--color-glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--color-glass-border);
-  box-shadow: var(--glass-shadow);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   border-radius: 50%;
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 .tech-badge:hover {

@@ -131,13 +131,12 @@ const Skills = () => {
                   key={tech.name} 
                   className="tech-badge hover-target"
                   title={tech.name}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   animate={{ y: [0, -12, 0] }}
                   transition={{ 
-                    opacity: { duration: 0.4, delay: 0.1 + (index % 10) * 0.05 },
-                    scale: { duration: 0.4, delay: 0.1 + (index % 10) * 0.05 },
+                    opacity: { duration: 0.6, delay: index * 0.05 },
                     y: {
                       duration: 3 + (index % 5) * 0.5,
                       repeat: Infinity,
