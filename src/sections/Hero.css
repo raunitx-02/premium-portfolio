@@ -313,37 +313,51 @@
 /* Stats Row */
 .stats-row {
   width: 100%;
-  margin-top: 80px;
-  padding: 40px 0;
+  margin-top: 100px;
+  padding: 60px 0;
   border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .stat-block {
   flex: 1;
   text-align: center;
-  border-right: 1px solid var(--color-border);
+  padding: 24px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 20px;
 }
 
-.stat-block:last-child {
-  border-right: none;
+.stat-block:hover {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
 }
 
 .stat-number {
   font-family: var(--font-display);
-  font-size: 64px;
+  font-size: clamp(48px, 6vw, 76px);
   font-weight: 800;
-  color: var(--color-text-primary);
-  line-height: 1.1;
-  margin-bottom: 4px;
+  line-height: 1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: var(--color-accent-1);
 }
 
 .stat-label {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
 }
 
 /* Responsive */
@@ -382,13 +396,30 @@
   }
 
   .stats-row {
-    flex-wrap: wrap;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 60px;
+    padding: 20px 0;
+    border: none;
   }
 
   .stat-block {
-    flex: 0 0 40%;
-    border-right: none;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    padding: 30px 15px;
+    border-radius: 24px;
+  }
+
+  .stat-number {
+    font-size: 48px;
+  }
+
+  .stat-label {
+    font-size: 12px;
   }
 }
 
