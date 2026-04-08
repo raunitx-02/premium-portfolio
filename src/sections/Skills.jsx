@@ -6,7 +6,12 @@ import {
   SiWordpress, SiWoocommerce, SiShopify, SiLaravel, 
   SiVuedotjs, SiN8N, SiMysql, SiPhp, SiFramer, 
   SiFigma, SiHtml5, SiCss, SiJavascript, 
-  SiGit, SiGithub, SiTensorflow, SiPytorch, SiPandas, SiNumpy 
+  SiGit, SiGithub, SiTensorflow, SiPytorch, SiPandas, SiNumpy,
+  SiNextdotjs, SiNodedotjs, SiTypescript, SiPostgresql, SiMongodb,
+  SiRedis, SiGooglecloud, SiKubernetes, SiGraphql, SiRedux,
+  SiSvelte, SiBun, SiDeno, SiGo, SiRust,
+  SiSwift, SiKotlin, SiPrisma, SiSupabase, SiCloudflare,
+  SiPostman, SiOpenai, SiLinux
 } from "react-icons/si";
 import AnimatedSectionHeading from '../components/AnimatedSectionHeading';
 import './Skills.css';
@@ -56,6 +61,29 @@ const techStackItems = [
   { name: "PyTorch", icon: <SiPytorch size={26} color="#EE4C2C" /> },
   { name: "pandas", icon: <SiPandas size={26} color="#150458" /> },
   { name: "NumPy", icon: <SiNumpy size={26} color="#013243" /> },
+  { name: "Next.js", icon: <SiNextdotjs size={26} color="#000000" /> },
+  { name: "Node.js", icon: <SiNodedotjs size={26} color="#339933" /> },
+  { name: "TypeScript", icon: <SiTypescript size={26} color="#3178C6" /> },
+  { name: "PostgreSQL", icon: <SiPostgresql size={26} color="#4169E1" /> },
+  { name: "MongoDB", icon: <SiMongodb size={26} color="#47A248" /> },
+  { name: "Redis", icon: <SiRedis size={26} color="#DC382D" /> },
+  { name: "Google Cloud", icon: <SiGooglecloud size={26} color="#4285F4" /> },
+  { name: "Kubernetes", icon: <SiKubernetes size={26} color="#326CE5" /> },
+  { name: "GraphQL", icon: <SiGraphql size={26} color="#E10098" /> },
+  { name: "Redux", icon: <SiRedux size={26} color="#764ABC" /> },
+  { name: "Svelte", icon: <SiSvelte size={26} color="#FF3E00" /> },
+  { name: "Bun", icon: <SiBun size={26} color="#000000" /> },
+  { name: "Deno", icon: <SiDeno size={26} color="#000000" /> },
+  { name: "Go", icon: <SiGo size={26} color="#00ADD8" /> },
+  { name: "Rust", icon: <SiRust size={26} color="#000000" /> },
+  { name: "Swift", icon: <SiSwift size={26} color="#F05138" /> },
+  { name: "Kotlin", icon: <SiKotlin size={26} color="#7F52FF" /> },
+  { name: "Prisma", icon: <SiPrisma size={26} color="#2D3748" /> },
+  { name: "Supabase", icon: <SiSupabase size={26} color="#3ECF8E" /> },
+  { name: "Cloudflare", icon: <SiCloudflare size={26} color="#F38020" /> },
+  { name: "Postman", icon: <SiPostman size={26} color="#FF6C37" /> },
+  { name: "OpenAI", icon: <SiOpenai size={26} color="#412991" /> },
+  { name: "Linux", icon: <SiLinux size={26} color="#FCC624" /> },
 ];
 
 const SkillBar = ({ name, percent, delay }) => {
