@@ -5,7 +5,7 @@ import {
   SiDocker, SiGithubactions, SiVercel, SiFlutter, 
   SiWordpress, SiWoocommerce, SiShopify, SiLaravel, 
   SiVuedotjs, SiN8N, SiMysql, SiPhp, SiFramer, 
-  SiFigma, SiHtml5, SiCss3, SiJavascript, 
+  SiFigma, SiHtml5, SiCss, SiJavascript, 
   SiGit, SiGithub, SiTensorflow, SiPytorch, SiPandas, SiNumpy 
 } from "react-icons/si";
 import AnimatedSectionHeading from '../components/AnimatedSectionHeading';
@@ -48,7 +48,7 @@ const techStackItems = [
   { name: "Framer Motion", icon: <SiFramer size={26} color="#0055FF" /> },
   { name: "Figma", icon: <SiFigma size={26} color="#F24E1E" /> },
   { name: "HTML5", icon: <SiHtml5 size={26} color="#E34F26" /> },
-  { name: "CSS3", icon: <SiCss3 size={26} color="#1572B6" /> },
+  { name: "CSS3", icon: <SiCss size={26} color="#1572B6" /> },
   { name: "JavaScript", icon: <SiJavascript size={26} color="#F7DF1E" /> },
   { name: "Git", icon: <SiGit size={26} color="#F05032" /> },
   { name: "GitHub", icon: <SiGithub size={26} color="#181717" /> },
