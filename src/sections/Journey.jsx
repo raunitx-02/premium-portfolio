@@ -27,7 +27,7 @@ const journeyData = {
       role: "Web Development Intern",
       period: "December 2025 – Present · Remote",
       description: "Designing, developing, and maintaining responsive web pages for Yung Minds digital products. Working with HTML, CSS, JavaScript, and modern frontend frameworks. Collaborating with designers and senior developers to convert UI/UX designs into pixel-perfect interfaces. Responsible for debugging, performance improvements, clean maintainable code, feature documentation, and UI/UX improvement suggestions.",
-      color: "orange"
+      color: "blue"
     },
     {
       id: "e4",
@@ -35,7 +35,7 @@ const journeyData = {
       role: "Data Science with AI Intern",
       period: "November 2025 – Present · Remote",
       description: "Developing and implementing machine learning models for predictive analytics. Working with Python, pandas, NumPy, scikit-learn, TensorFlow, and PyTorch. Analyzing large datasets to extract meaningful insights. Building AI-powered solutions and intelligent automation workflows. Building end-to-end data pipelines from collection to deployment. Model training, evaluation, optimization, and integrating AI/ML capabilities into web applications.",
-      color: "orange"
+      color: "blue"
     },
     {
       id: "e5",
@@ -43,7 +43,7 @@ const journeyData = {
       role: "Web Development Intern",
       period: "October 2025 – Present · Remote",
       description: "Design, optimization, and deployment of dynamic company websites using WordPress. Collaborating with senior developers on responsive layouts and site performance. Integrating SEO strategies improving Google PageSpeed scores. Enhancing site features, fixing UI/UX issues. Running client demos. Hands-on in technical execution and client relationship management.",
-      color: "orange"
+      color: "blue"
     },
     {
       id: "e6",
